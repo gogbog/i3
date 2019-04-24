@@ -84,9 +84,9 @@ set $secondMonitor DP-4
 #set $secondMonitor DVI-1
 
 workspace 1 output $firstMonitor
-workspace 2 output $secondMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
+workspace 2 output $firstMonitor
+workspace 3 output $secondMonitor
+workspace 4 output $secondMonitor
 workspace 5 output $firstMonitor
 workspace 6 output $secondMonitor
 workspace 7 output $secondMonitor
@@ -347,40 +347,40 @@ font pango:Noto Mono Regular 11
 # you can find the class with the program xprop
 
 # Workspace 1 browser related
-assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 1
-assign [class="Chromium-browser|Google-chrome"]                                     → 1
+#assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 1
+#assign [class="Chromium-browser|Google-chrome"]                                     → 1
 
 # Workspace 2 text editor related
-assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
-assign [class="Xed|xed|Brackets|Atom|Code|Geany"]                                   → 2
+#assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
+#assign [class="Xed|xed|Brackets|Atom|Code|Geany"]                                   → 2
 
 # Workspace 3 Inkscape
-assign [class="Inkscape"]                                                           → 3
+#assign [class="Inkscape"]                                                           → 3
 
 # Workspace 4 Gimp
-assign [class="Gimp"]                                                               → 4
+#assign [class="Gimp"]                                                               → 4
 
 # Workspace 5 Images and meld
-assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
-assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
-assign [class="Meld"]                                                               → 5
+#assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
+#assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
+#assign [class="Meld"]                                                               → 5
 
 # Workspace 6 all video related software
-assign [class="Vlc|vlc"]                                                            → 6
+#assign [class="Vlc|vlc"]                                                            → 6
 
 # Workspace 7 virtual machines and settings
-assign [class="Vmplayer|VirtualBox"]						                        → 7
+#assign [class="Vmplayer|VirtualBox"]						                        → 7
 
 # Workspace 8 file managers
 assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 8
 
 # Workspace 9 email clients
-assign [class="Geary|Evolution"]                                                    → 9
+#assign [class="Geary|Evolution"]                                                    → 9
 
 # Workspace 10 music related
-assign [class="Spotify|spotify"]                                                    → 10
+#assign [class="Spotify|spotify"]                                                    → 10
 #fix for spotify not moving to workspace 10
-for_window [class="Spotify"] move to workspace 10
+#for_window [class="Spotify"] move to workspace 10
 
 
 
@@ -425,7 +425,7 @@ for_window [class="Chromium-browser"] focus
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # Updater
-exec --no-startup-id mintupdate-launcher
+#exec --no-startup-id mintupdate-launcher
 
 # bluetooth
 exec --no-startup-id blueberry-tray
@@ -437,24 +437,24 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id numlockx on
 
 # dropbox
-exec --no-startup-id dropbox start
+#exec --no-startup-id dropbox start
 
 # insync
-exec --no-startup-id insync start
+#exec --no-startup-id insync start
 
 # volume
 #exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 
 #variety
-exec --no-startup-id variety
+#exec --no-startup-id variety
 
 # clipit
-exec --no-startup-id clipit
+#exec --no-startup-id clipit
 
 #Conky
-exec --no-startup-id conky -c ~/.config/i3/system-overview
-exec --no-startup-id conky -c ~/.config/i3/system-shortcuts
+#exec --no-startup-id conky -c ~/.config/i3/system-overview
+#exec --no-startup-id conky -c ~/.config/i3/system-shortcuts
 
 
 #####################################################################################################################
@@ -671,14 +671,14 @@ bindsym mod1+Down exec --no-startup-id variety --resume
 #####################################################################################################################
 
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer  sset Master '5%+'"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer  sset Master '5%-'"
 bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
 #https://github.com/acrisci/playerctl/
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioPlay exec --no-startup-id playerctl -a play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl -a next
+bindsym XF86AudioPrev exec --no-startup-id playerctl -a previous
+bindsym XF86AudioStop exec --no-startup-id playerctl -a stop
 #bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 #bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 #bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
@@ -811,7 +811,7 @@ mode "$mode_gaps_outer" {
 #####################################################################################################################
 
 #if you want transparency on non-focused windows, ...
-exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
+#exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 
 
 
@@ -865,14 +865,15 @@ status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
 
 colors {
-        background #111111
-        statusline #eeeeee
-        separator  #666666
-        #                     border  backgr. text
-        focused_workspace     #a9a9a9 #5f676a #eeeeee
-        active_workspace      #a9a9a9 #5f676a #a9a9a9
-        inactive_workspace    #a9a9a9 #222222 #a9a9a9
-        urgent_workspace      #a9a9a9 #d42121 #FFFFFF
+	   background #000000
+    statusline #FFFFFF
+    separator  #666666
+
+    focused_workspace  #4C7899 #285577 #FFFFFF
+    active_workspace   #333333 #222222 #FFFFFF
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #2F343A #900000 #FFFFFF
+    binding_mode       #2F343A #900000 #FFFFFF
         }
 
     }
