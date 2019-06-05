@@ -53,7 +53,7 @@ set $right l
 #set $left j
 #set $right m
 
-
+focus_follows_mouse no
 
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
@@ -66,7 +66,6 @@ set $right l
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
 # exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
 exec --no-startup-id xrandr --output DVI-D-0 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-5 --off --output DP-4 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-3 --off --output DP-2 --off --output DP-1 --off --output DP-0 --off
-
 # my current setup
 set $firstMonitor HDMI1
 set $secondMonitor DP-4
@@ -504,7 +503,7 @@ bindsym control+mod1+u exec --no-startup-id pavucontrol
 bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 
 #language change
-exec --no-startup-id   setxkbmap -model pc105 -layout us,bg -variant ,phonetic -option grp:alt_shift_toggle
+exec_always --no-startup-id   setxkbmap -model pc105 -layout us,bg -variant ,phonetic -option grp:alt_shift_toggle
 
 #move workspace to another monitor
 bindsym $mod+m move workspace to output left
@@ -515,7 +514,7 @@ bindsym $mod+m move workspace to output left
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;workspace 1;focus
 #qwerty/azerty conflict with w
 bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser;workspace 1;focus
-bindsym control+mod1+f exec --no-startup-id firefox;workspace 1; focus
+#bindsym control+mod1+f exec --no-startup-id firefox;workspace 1; focus
 bindsym control+mod1+v exec --no-startup-id vivaldi-snapshot;workspace 1; focus
 bindsym control+mod1+g exec --no-startup-id chromium-browser;workspace 1;focus
 
